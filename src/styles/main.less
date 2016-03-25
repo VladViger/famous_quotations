@@ -80,12 +80,16 @@ body {
 }
 
 .toolbar {
-	padding-top: 5px;
+	padding-top: 6px;
 	text-align: center;
 
-	[class*="sort"] .icon {
-		color: #E1E1E1;
-		font-size: @fs_main*0.75;
+	[class*="sort"] {
+		white-space: nowrap;
+
+		.icon {
+			color: #E1E1E1;
+			font-size: @fs_main*0.75;
+		}
 	}
 
 	[class*="sort"].active .icon {
@@ -97,7 +101,7 @@ body {
 	display: none;
 	color: #79A6F3;
 	font-size: @fs_main*1.25;
-	line-height: 1;
+	line-height: 1.2;
 }
 
 /*
@@ -144,7 +148,15 @@ body {
 }
 
 @media (max-width: 767px) {
-	.sort-quotes {
+	.sort {
 		cursor: pointer;
+	}
+
+	.toolbar [class*="sort-"] {
+		display: none;
+	}
+
+	.toolbar [class*="sort-"].mobile-height {
+		display: block;
 	}
 }
