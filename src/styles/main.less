@@ -71,14 +71,33 @@ body {
 /*
 -- toolbar --
 */
-.btn-about {
-	display: none;
+.btn-about,
+.add-quote,
+.sort-date,
+.sort-rating,
+.sort-name {
 	cursor: pointer;
 }
 
-.sort {
-	font-size: @fs_main*0.75;
-	//border-top: 1px dashed #777
+.toolbar {
+	padding-top: 5px;
+	text-align: center;
+
+	[class*="sort"] .icon {
+		color: #E1E1E1;
+		font-size: @fs_main*0.75;
+	}
+
+	[class*="sort"].active .icon {
+		color: inherit;
+	}
+}
+
+.btn-about {
+	display: none;
+	color: #79A6F3;
+	font-size: @fs_main*1.25;
+	line-height: 1;
 }
 
 /*
@@ -121,5 +140,11 @@ body {
 		p {
 			margin: 5px 0 12px;
 		}
+	}
+}
+
+@media (max-width: 767px) {
+	.sort-quotes {
+		cursor: pointer;
 	}
 }
