@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 
-// files & directories
+// Files & Directories
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
 
@@ -15,6 +15,11 @@ var csso = require('gulp-csso');
 
 // JavaScript
 var uglify = require('gulp-uglify');
+
+// Validators
+var htmlhint = require("gulp-htmlhint");
+var csslint = require('gulp-csslint');
+var jshint = require('gulp-jshint');
 
 // Tasks
 gulp.task('less', function() {
@@ -75,11 +80,29 @@ gulp.task('build:img', function() {
 
 gulp.task('build', ['build:html', 'build:css', 'build:js', 'build:img']);
 
-// images
+// transport images
 gulp.task('img:tr', function() {
 	gulp.src('_origin/img/compil/*')
 		.pipe(gulp.dest('./src/images/'));
 });
 
-// validate
-// gulp-htmlhint, gulp-csslint, gulp-jshint
+// validate tasks (default settings)
+gulp.task('validate:html', function() {
+	gulp.src('./src/*.html')
+		.pipe(htmlhint())
+		.pipe(htmlhint.reporter());
+});
+
+gulp.task('validate:css', function() {
+	gulp.src('./src/css_compiled/*.css')
+		.pipe(csslint())
+		.pipe(csslint.reporter());
+});
+
+gulp.task('validate:js', function() {
+	gulp.src('./src/scripts/*.js')
+		.pipe(jshint())
+		.pipe(jshint.reporter());
+});
+
+gulp.task('validate', ['validate:html', 'validate:css', 'validate:js']);
