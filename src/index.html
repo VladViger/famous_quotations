@@ -28,7 +28,7 @@
 			</div>
 			<div class="col-xs-12 line"></div>
 		</section>
-		<section class="row toolbar">
+		<section id="toolbar" class="row toolbar">
 			<div class="col-xs-5 col-sm-3">
 				<p class="add-quote">Добавить<span class="icon flaticon-add"></span></p>
 			</div>
@@ -88,44 +88,46 @@
 			</div>
 		</footer>
 	</div>
+	<!-- template -->
+	<script id="article-template" type="text/template">
+		<div class="row quote-control-panel">
+			<div class="col-xs-2 col-xs-offset-1">
+				<span class="rating icon flaticon-like">&nbsp;<%= rating %></span>
+			</div>
+			<div class="col-xs-4 col-xs-offset-4">
+				<span class="edit icon flaticon-edit"></span>
+				<span class="delete icon flaticon-delete"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<blockquote class="quote-body">
+					<p class="quote-text"><%- text %></p>
+					<p class="quote-author"><cite><%- author %></cite></p>
+				</blockquote>
+			</div>
+		</div>
+		<div class="row post-info">
+			<div class="col-xs-12 col-sm-6">
+				<p><span>Добавлено:&nbsp;</span><span><%= theDate %></span></p>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<p><span>Разместил:&nbsp;</span><span><%- creator %></span></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 line"></div>
+		</div>
+	</script>
+	<!-- template end -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.2/backbone-min.js"></script>
 	<!-- htmlbuild:js -->
 	<script src="scripts/jQuery_script.js"></script>
-	<script src="scripts/modules.js"></script>
+	<script src="scripts/bb_models.js"></script>
+	<script src="scripts/bb_collections.js"></script>
+	<script src="scripts/bb_views.js"></script>
 	<!-- endbuild -->
-	<script id="" type="text/template">
-		<article class="quote-wrap">
-			<div class="row quote-control-panel">
-				<div class="col-xs-2 col-xs-offset-1">
-					<span class="rating icon flaticon-like">&nbsp;40</span>
-				</div>
-				<div class="col-xs-4 col-xs-offset-4">
-					<span class="edit icon flaticon-edit"></span>
-					<span class="delete icon flaticon-delete"></span>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-10 col-xs-offset-1">
-					<blockquote class="quote-body">
-						<p class="quote-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet animi ea fugit quisquam eaque sapiente eius ab assumenda, necessitatibus, nam error! Animi minima, possimus aut.</p>
-						<p class="quote-author"><cite>Lorem ipsum.</cite></p>
-					</blockquote>
-				</div>
-			</div>
-			<div class="row post-info">
-				<div class="col-xs-12 col-sm-6">
-					<p><span>Добавлено:&nbsp;</span><span>25-12-2201</span></p>
-				</div>
-				<div class="col-xs-12 col-sm-6">
-					<p><span>Разместил:&nbsp;</span><span>Евпатий</span></p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 line"></div>
-			</div>
-		</article>
-	</script>
 </body>
 </html>
