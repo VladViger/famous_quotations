@@ -1,11 +1,10 @@
 var Article = Backbone.Model.extend({
 	defaults: {
-		rating: 0,
-		liked: false,
-		rights: false,
 		text: '',
 		author: 'неизвестный автор',
-		creator: 'аноним'
+		creator: 'аноним',
+		liked: [],
+		rating: 0
 	},
 
 	initialize: function() {
