@@ -1,10 +1,11 @@
 // temp database
 var database = [
 	{
-		text: "Ленивые всегда собираются что-то сделать.",
-		author: "Вовенарг",
-		creator: "admin",
-		liked: ["10.11.6.37", "127.0.0.1", "91.194.56.98"]
+		"text": "Ленивые всегда собираются что-то сделать.",
+		"author": "Вовенарг",
+		"creator": "admin",
+		"liked": ["10.11.6.37", "127.0.0.1", "91.194.56.98"],
+		"theDate": "01-01-2012"
 	},
 	{
 		text: "...Вы еще не искали себя, когда обрели меня. Так бывает со всеми верующими; и потому так мало значит всякая вера.",
@@ -28,4 +29,4 @@ var ArticleList = Backbone.Collection.extend({
 	model: Article
 });
 
-var articleList = new ArticleList();
+var articleList = new ArticleList(database);

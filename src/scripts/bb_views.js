@@ -24,6 +24,7 @@ var AppView = Backbone.View.extend({
 
 	initialize: function() {
 		articleList.bind('add', this.addOne, this);
+		this.addAll(articleList);
 	},
 
 	render: function() {
@@ -33,6 +34,13 @@ var AppView = Backbone.View.extend({
 	addOne: function(article) {
 		var view = new ArticleView({model: article});
 		this.$el.after(view.render().el);
+	},
+
+	addAll: function(collection) {
+		var self = this;
+		_.each(collection.models, function(item) {
+            self.addOne(item);
+        }, this);
 	}
 });
 
