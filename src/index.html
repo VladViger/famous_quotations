@@ -71,7 +71,7 @@
 			</div>
 			<div class="row post-info">
 				<div class="col-xs-12 col-sm-6">
-					<p><span>Добавлено:&nbsp;</span><span>25-12-2201</span></p>
+					<p><span>Добавлено:&nbsp;</span><span>dd-mm-yyyy</span></p>
 				</div>
 				<div class="col-xs-12 col-sm-6">
 					<p><span>Разместил:&nbsp;</span><span>Евпатий</span></p>
@@ -92,7 +92,7 @@
 	<script id="article-template" type="text/template">
 		<div class="row quote-control-panel">
 			<div class="col-xs-2 col-xs-offset-1">
-				<span class="rating icon flaticon-like">&nbsp;<% %></span>
+				<span class="rating icon flaticon-like">&nbsp;<%= rating %></span>
 			</div>
 			<div class="col-xs-4 col-xs-offset-4">
 				<span class="edit icon flaticon-edit"></span>
@@ -109,7 +109,7 @@
 		</div>
 		<div class="row post-info">
 			<div class="col-xs-12 col-sm-6">
-				<p><span>Добавлено:&nbsp;</span><span><%= theDate %></span></p>
+				<p><span>Добавлено:&nbsp;</span><span><%= theDateString %></span></p>
 			</div>
 			<div class="col-xs-12 col-sm-6">
 				<p><span>Разместил:&nbsp;</span><span><%- creator %></span></p>
