@@ -4,7 +4,8 @@ var ArticleView = Backbone.View.extend({
 	template: _.template($('#article-template').html()),
 
 	events: {
-		'click .delete.active': 'clear'
+		'click .delete.active': 'clear',
+		'click .rating': 'toLike'
 	},
 
 	initialize: function() {
@@ -13,18 +14,34 @@ var ArticleView = Backbone.View.extend({
 
 	render: function() {
 		this.$el.html(this.template(this.model.toJSON()));
-		this.setRights(this.$el);
+		this.setRights();
+		this.setLiked();
 		return this;
 	},
 
-	setRights: function(el) {
-		console.log(USER_IP);
-		if (this.model.get('liked').indexOf(USER_IP) == -1) return;
-		el.find('.delete').addClass('active');
+	setRights: function() {
+		var self = this;
+		setTimeout(function() {
+			if (self.model.get('creatorIP') != USER_IP) return;
+			self.$el.find('.delete, .edit').addClass('active');
+		}, 1000);
+	},
+
+	setLiked: function() {
+		var self = this;
+		setTimeout(function() {
+			if (self.model.get('liked').indexOf(USER_IP) == -1) return;
+			self.$el.find('.rating').addClass('liked');
+		}, 1000);
 	},
 
 	clear: function() {
 		this.model.clear();
+	},
+
+	toLike: function(e) {
+		$(e.target).hasClass('liked') ? console.log('yes') : console.log('no');
+		$(e.target).toggleClass('liked');
 	}
 });
 
