@@ -8,12 +8,35 @@ var Article = Backbone.Model.extend({
 
 	initialize: function() {
 		this.calcRating();
+		this.bind('change:liked', this.calcRating);
+		this.bind('invalid', this.showError);
 
 		if (!this.get('theDate')) {
 			var date = new Date();
 			this.set({'theDate': date});
 			this.set({'theDateString': this.getDateString(date)});
 		}
+
+		if (!this.get('creatorIP')) {
+			this.set({'creatorIP': USER_IP});
+		}
+
+		if (this.get('author').length < 3) {
+			this.set({'author': this.defaults.author});
+		}
+
+		if (this.get('creator').length < 3) {
+			this.set({'creator': this.defaults.creator});
+		}
+	},
+
+	validate: function(attrs) {
+		var messageOne = 'Ошибка! \n' + 'Слишком короткая цитата.';
+		var messageTwo = 'Ошибка! \n' + 'Имя должно содержать не менее 3-х букв.';
+
+		if (attrs.text.length < 10) return messageOne;
+		if (attrs.author.length < 3) return messageTwo;
+		if (attrs.creator.length < 3) return messageTwo;
 	},
 
 	getDateString: function(date) {
@@ -28,7 +51,21 @@ var Article = Backbone.Model.extend({
 		this.set('rating', this.get('liked').length);
 	},
 
+	addLike: function() {
+		var newLiked = _.union(this.get('liked'), [USER_IP]);
+		this.set('liked', newLiked);
+	},
+
+	removeLike: function() {
+		var newLiked = _.without(this.get('liked'), USER_IP);
+		this.set('liked', newLiked);
+	},
+
 	clear: function() {
 		this.destroy();
+	},
+
+	showError: function(model, error) {
+		alert(error);
 	}
 });

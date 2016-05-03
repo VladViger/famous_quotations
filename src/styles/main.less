@@ -100,6 +100,12 @@ body {
 	[class*="sort"].active .icon {
 		color: inherit;
 	}
+
+	[class*="sort"].active:not(.up) .icon:before {
+		position: absolute;
+		transform: rotate(180deg);
+		line-height: 1.85;
+	}
 }
 
 .btn-about {
@@ -165,6 +171,32 @@ body {
 		padding-top: 12px;
 		font-size: @fs_main*0.875;
 		text-align: center;
+	}
+}
+
+/*
+-- form for add/edit quotes --
+*/
+.set-quote {
+	padding: 16px 0;
+
+	input,
+	textarea {
+		display: block;
+		margin-bottom: 4px;
+		width: 100%;
+		padding: 4px 6px;
+	}
+
+	textarea {
+		height: 8em;
+		resize: none;
+	}
+
+	input[type="submit"],
+	input[type="reset"] {
+		display: inline-block;
+		width: 10em;
 	}
 }
 
