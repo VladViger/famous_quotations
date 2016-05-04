@@ -186,27 +186,27 @@ var AppView = Backbone.View.extend({
 	},
 
 	sortByDate: function(e) {
-		$(e.target).hasClass('up') ?
+		$(e.currentTarget).hasClass('up') ?
 			articleList.sortByDateDown() : articleList.sortByDateUp();
 		this.clear(articleList);
 		this.addAll(articleList);
-		this.setClassSortEl(e.target);
+		this.setClassSortEl(e.currentTarget);
 	},
 
 	sortByRating: function(e) {
-		$(e.target).hasClass('up') ?
+		$(e.currentTarget).hasClass('up') ?
 			articleList.sortByRatingDown() : articleList.sortByRatingUp();
 		this.clear(articleList);
 		this.addAll(articleList);
-		this.setClassSortEl(e.target);
+		this.setClassSortEl(e.currentTarget);
 	},
 
 	sortByAuthor: function(e) {
-		$(e.target).hasClass('up') ?
+		$(e.currentTarget).hasClass('up') ?
 			articleList.sortByAuthorDown() : articleList.sortByAuthorUp();
 		this.clear(articleList);
 		this.addAll(articleList);
-		this.setClassSortEl(e.target);
+		this.setClassSortEl(e.currentTarget);
 	}
 });
 

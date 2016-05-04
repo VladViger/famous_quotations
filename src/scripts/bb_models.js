@@ -30,13 +30,13 @@ var Article = Backbone.Model.extend({
 		}
 	},
 
-	validate: function(attrs) {
+	validate: function(t) {
 		var messageOne = 'Ошибка! \n' + 'Слишком короткая цитата.';
 		var messageTwo = 'Ошибка! \n' + 'Имя должно содержать не менее 3-х букв.';
 
-		if (attrs.text.length < 10) return messageOne;
-		if (attrs.author.length < 3) return messageTwo;
-		if (attrs.creator.length < 3) return messageTwo;
+		if (t.text.length < 10) return messageOne;
+		if (t.author.length < 3) return messageTwo;
+		if (t.creator.length < 3) return messageTwo;
 	},
 
 	getDateString: function(date) {

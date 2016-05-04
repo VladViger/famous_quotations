@@ -50,8 +50,10 @@ body {
 		a {
 			color: @c_link;
 
-			&:hover {
+			&:hover,
+			&:focus {
 				text-decoration: none;
+				outline: none;
 			}
 		}
 	}
@@ -101,10 +103,10 @@ body {
 		color: inherit;
 	}
 
-	[class*="sort"].active:not(.up) .icon:before {
-		position: absolute;
+	[class*="sort-"].active:not(.up) .icon:before {
+		display: inline-block;
 		transform: rotate(180deg);
-		line-height: 1.85;
+		vertical-align: 12%;
 	}
 }
 
@@ -178,7 +180,8 @@ body {
 -- form for add/edit quotes --
 */
 .set-quote {
-	padding: 16px 0;
+	padding-top: 16px;
+	padding-bottom: 16px;
 
 	input,
 	textarea {

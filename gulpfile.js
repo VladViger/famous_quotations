@@ -60,7 +60,7 @@ gulp.task('build:html', function() {
 });
 
 gulp.task('build:css', function() {
-	gulp.src('./src/styles/compiled/*css')
+	gulp.src('./src/css_compiled/*.css')
 		.pipe(concat('style.min.css'))
 		.pipe(csso())
 		.pipe(gulp.dest('./public/css/'));
