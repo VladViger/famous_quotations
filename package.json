@@ -1,9 +1,12 @@
 {
   "name": "famous-quotations",
-  "version": "1.0.0",
   "description": "web site of aphorisms",
-  "author": "VladViger",
-  "main": "gulpfile.js",
+  "version": "0.1.0",
+  "author": {
+    "name": "Vlad Viger",
+    "email": "vlad.on.net@gmail.com"
+  },
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VladViger/famous_quotations.git"
@@ -21,6 +24,15 @@
     "gulp-jshint": "^2.0.0",
     "gulp-less": "^3.0.5",
     "gulp-uglify": "^1.5.3",
-    "jshint": "^2.9.1"
+    "jshint": "^2.9.1",
+    "morgan": "^1.7.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "serve-favicon": "^2.3.0"
+  },
+  "scripts": {
+    "start": "node ./bin/www"
   }
 }
