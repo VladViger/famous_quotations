@@ -13,7 +13,7 @@ var Article = Backbone.Model.extend({
 
 		if (!this.get('theDate')) {
 			var date = new Date();
-			this.set({'theDate': date});
+			this.set({'theDate': +date});
 			this.set({'theDateString': this.getDateString(date)});
 		}
 
@@ -67,5 +67,8 @@ var Article = Backbone.Model.extend({
 
 	showError: function(model, error) {
 		alert(error);
-	}
+	},
+
+	urlRoot: '/fq',
+	idAttribute: "_id"
 });

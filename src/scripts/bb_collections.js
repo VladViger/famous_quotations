@@ -1,4 +1,5 @@
 // TEMP DATABASE
+/*
 var DATABASE = [
 	{
 		"text": "Ленивые всегда собираются что-то сделать.",
@@ -43,6 +44,7 @@ var DATABASE = [
 		"liked": ["91.194.56.98", "77.122.22.175"]
 	}
 ];
+*/
 // TEMP DATABASE END
 
 var ArticleList = Backbone.Collection.extend({
@@ -94,7 +96,10 @@ var ArticleList = Backbone.Collection.extend({
 				return -1;
 			}
 		});
-	}
+	},
+
+	url: '/fq'
 });
 
-var articleList = new ArticleList(DATABASE);
+var articleList = new ArticleList();
+articleList.fetch();

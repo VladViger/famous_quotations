@@ -49,6 +49,7 @@ var ArticleView = Backbone.View.extend({
 	toLike: function(e) {
 		$(e.target).hasClass('liked') ? this.model.removeLike() : this.model.addLike();
 		$(e.target).toggleClass('liked');
+		this.model.save();
 	},
 
 	edit: function() {
@@ -90,6 +91,7 @@ var AddingView = Backbone.View.extend({
 		});
 
 		if (model.isValid()) {
+			model.save();
 			articleList.add(model);
 		} else {
 			model.validationError;
@@ -133,6 +135,7 @@ var EditView = AddingView.extend({
 		{
 			validate: true
 		});
+		this.model.save();
 		this.articleView.render();
 		this.remove();
 	}
