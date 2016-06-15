@@ -54,11 +54,13 @@ var Article = Backbone.Model.extend({
 	addLike: function() {
 		var newLiked = _.union(this.get('liked'), [USER_IP]);
 		this.set('liked', newLiked);
+		this.save();
 	},
 
 	removeLike: function() {
 		var newLiked = _.without(this.get('liked'), USER_IP);
 		this.set('liked', newLiked);
+		this.save();
 	},
 
 	clear: function() {

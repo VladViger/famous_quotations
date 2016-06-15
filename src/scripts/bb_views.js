@@ -49,7 +49,6 @@ var ArticleView = Backbone.View.extend({
 	toLike: function(e) {
 		$(e.target).hasClass('liked') ? this.model.removeLike() : this.model.addLike();
 		$(e.target).toggleClass('liked');
-		this.model.save();
 	},
 
 	edit: function() {
@@ -127,15 +126,11 @@ var EditView = AddingView.extend({
 		var text = this.$el.find('.quote-text').val();
 		var author = this.$el.find('.quote-author').val();
 		var sign = this.$el.find('.quote-sign').val();
-		this.model.set({
+		this.model.save({
 			text: text,
 			author: author,
 			creator: sign
-		},
-		{
-			validate: true
 		});
-		this.model.save();
 		this.articleView.render();
 		this.remove();
 	}
