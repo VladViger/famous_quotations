@@ -73,12 +73,14 @@ gulp.task('build:js', function() {
 		.pipe(gulp.dest('./public/js/'));
 });
 
-gulp.task('build:img', function() {
+gulp.task('build:other', function() {
 	gulp.src('./src/images/**')
 		.pipe(gulp.dest('./public/images/'));
+	gulp.src('./src/fonts/**')
+		.pipe(gulp.dest('./public/fonts/'));
 });
 
-gulp.task('build', ['build:html', 'build:css', 'build:js', 'build:img']);
+gulp.task('build', ['build:html', 'build:css', 'build:js', 'build:other']);
 
 // transport images
 gulp.task('img:tr', function() {
