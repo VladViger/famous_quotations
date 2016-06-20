@@ -92,12 +92,11 @@ var AddingView = Backbone.View.extend({
 		if (model.isValid()) {
 			model.save();
 			articleList.add(model);
+			this.remove();
 		} else {
 			model.validationError;
 			model.destroy();
 		}
-		
-		this.remove();
 	}
 });
 

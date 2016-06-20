@@ -21,22 +21,25 @@ var Article = Backbone.Model.extend({
 			this.set({'creatorIP': USER_IP});
 		}
 
-		if (this.get('author').length < 3) {
+		if (!this.get('author')) {
 			this.set({'author': this.defaults.author});
 		}
 
-		if (this.get('creator').length < 3) {
+		if (!this.get('creator')) {
 			this.set({'creator': this.defaults.creator});
 		}
 	},
 
 	validate: function(t) {
 		var messageOne = 'Ошибка! \n' + 'Слишком короткая цитата.';
-		var messageTwo = 'Ошибка! \n' + 'Имя должно содержать не менее 3-х букв.';
+		var messageTwo = 'Ошибка! \n' + 'Слишком длинная цитата.';
+		var messageThree = 'Ошибка! \n' + 'Имя автора должно содержать от 3 до 40 символов.';
+		var messageFour = 'Ошибка! \n' + 'Подпись должна содержать от 3 до 20 символов.';
 
-		if (t.text.length < 10) return messageOne;
-		if (t.author.length < 3) return messageTwo;
-		if (t.creator.length < 3) return messageTwo;
+		if (t.text.length < 20) return messageOne;
+		if (t.text.length > 1000) return messageTwo;
+		if (t.author.length < 3 || t.author.length > 40) return messageThree;
+		if (t.creator.length < 3 || t.creator.length > 20) return messageFour;
 	},
 
 	getDateString: function(date) {

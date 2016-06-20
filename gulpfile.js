@@ -67,7 +67,12 @@ gulp.task('build:css', function() {
 });
 
 gulp.task('build:js', function() {
-	gulp.src('./src/scripts/*.js')
+	gulp.src([
+		'./src/scripts/jQuery_script.js',
+		'./src/scripts/bb_models.js',
+		'./src/scripts/bb_collections.js',
+		'./src/scripts/*.js'
+		])
 		.pipe(concat('app.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('./public/js/'));

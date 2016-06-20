@@ -28,7 +28,7 @@ router.put('/:id', function(req, res, next) {
 	return Quote.findById(req.params.id, function(err, quote) {
 		if (!quote) {
 			res.statusCode = 404;
-			return res.send();
+			return res.send({ error: 'Not found' });
 		}
 		quote.text = req.body.text;
 		quote.author = req.body.author;
@@ -37,7 +37,7 @@ router.put('/:id', function(req, res, next) {
 
 		return quote.save(function(err) {
 			if (err) throw err;
-			return res.send();
+			return res.send({ message: 'Quote updated' });
 		});
 	});
 });
@@ -46,11 +46,11 @@ router.delete('/:id', function(req, res, next) {
 	return Quote.findById(req.params.id, function(err, quote) {
 		if (!quote) {
 			res.statusCode = 404;
-			return res.send();
+			return res.send({ error: 'Not found' });
 		}
 		return quote.remove(function(err) {
 			if (err) throw err;
-			return res.send();
+			return res.json({ message: 'Successfully deleted' });
 		});
 	});
 });
