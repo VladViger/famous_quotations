@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Высказывания известных людей. Афоризмы.">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.min.css"/>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<title>Жемчужины мысли</title>
+</head>
+<body>
+	<div class="container">
+		<header class="row header">
+			<div class="col-xs-12 header-bg">
+				<h1><a href="index.html">Цитаты великих...</a></h1>
+				<p>... и просто хороших людей</p>
+			</div>
+			<div class="col-xs-12 line"></div>
+		</header>
+		<section class="row description hide-xs">
+			<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+				<p>Данный веб-сайт является сборником цитат и афоризмов, где каждый может добавлять понравившееся ему высказывание. Здесь не требуется регистрация, поэтому просьба при добавлении проявлять порядочность и грамотность.</p>
+			</div>
+			<div class="col-xs-12 line"></div>
+		</section>
+		<section id="toolbar" class="row toolbar">
+			<div class="col-xs-5 col-sm-3">
+				<p class="add-quote">Добавить<span class="icon flaticon-add"></span></p>
+			</div>
+			<div class="col-xs-5 col-sm-2">
+				<p class="sort">Сортировать<span class="hidden-xs">:</span><span class="icon flaticon-down visible-xs-inline"></span></p>
+			</div>
+			<div class="col-xs-2 visible-xs">
+				<div class="btn-about"><span class="icon flaticon-faq"></span></div>
+			</div>
+			<div class="col-xs-3 visible-xs"></div>
+			<div class="col-xs-3 col-sm-2">
+				<p class="sort-date active up">дата<span class="icon flaticon-down"></span></p>
+			</div>
+			<div class="col-xs-3 col-sm-2">
+				<p class="sort-rating">рейтинг<span class="icon flaticon-down"></span></p>
+			</div>
+			<div class="col-xs-3 col-sm-2">
+				<p class="sort-name">автор<span class="icon flaticon-down"></span></p>
+			</div>
+			<div class="col-xs-12 line"></div>
+		</section>
+		<footer class="row footer">
+			<div class="col-xs-12">
+				<p class="copyright">© 2016. Created by Vlad.V</p>
+			</div>
+		</footer>
+	</div>
+	<!-- templates -->
+	<script id="article-template" type="text/template">
+		<div class="row quote-control-panel">
+			<div class="col-xs-2 col-xs-offset-1">
+				<span class="rating icon flaticon-like">&nbsp;<%= rating %></span>
+			</div>
+			<div class="col-xs-4 col-xs-offset-4">
+				<span class="edit icon flaticon-edit"></span>
+				<span class="delete icon flaticon-delete"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<blockquote class="quote-body">
+					<p class="quote-text"><%- text %></p>
+					<p class="quote-author"><cite><%- author %></cite></p>
+				</blockquote>
+			</div>
+		</div>
+		<div class="row post-info">
+			<div class="col-xs-12 col-sm-6">
+				<p><span>Добавлено:&nbsp;</span><span><%= theDateString %></span></p>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<p><span>Разместил:&nbsp;</span><span><%- creator %></span></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 line"></div>
+		</div>
+	</script>
+	<script id="set-quote-template" type="text/template">
+		<form class="col-xs-12 set-quote" action="">
+			<textarea class="quote-text" placeholder="Цитата" required></textarea>
+			<input type="text" class="quote-author" placeholder="Автор" value="">
+			<input type="text" class="quote-sign" placeholder="Ваша подпись" value="">
+			<input type="submit" class="btn-set-quote" value="Добавить">
+			<input type="reset" class="btn-cancel" value="Отмена">
+		</form>
+		<div class="col-xs-12 line"></div>
+	</script>
+	<!-- templates end -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.2/backbone-min.js"></script>
+	<script src="js/app.min.js"></script>
+</body>
+</html>
