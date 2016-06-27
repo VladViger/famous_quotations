@@ -9,7 +9,7 @@ $('.sort').on('click', function() {
 });
 
 var USER_IP;
-$.getJSON("http://jsonip.com/",
+$.getJSON("https://api.ipify.org/?format=json",
 	function(data){
 		USER_IP = data.ip;
 });
