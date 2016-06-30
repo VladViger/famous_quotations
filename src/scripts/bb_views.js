@@ -164,7 +164,7 @@ var AppView = Backbone.View.extend({
 	clear: function(collection) {
 		_.each(collection.models, function(model) {
 			model.trigger('removeView');
-		})
+		});
 	},
 
 	showForm: function() {
